@@ -53,6 +53,10 @@ variable "end_ip_address" {
   default     = "255.255.255.255"
 }
 
+variable "instance_count" {
+  default = "2"
+}
+
 variable "tags" {
   description = "The tags to associate with your network and subnets."
   type        = "map"

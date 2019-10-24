@@ -7,7 +7,7 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_sql_database" "db" {
-  name                             = "${var.db_name}"
+  name                             = "${var.db_name}-${count.index + 1}"
   resource_group_name              = "${azurerm_resource_group.rg.name}"
   location                         = "${var.location}"
   edition                          = "${var.db_edition}"
@@ -16,6 +16,7 @@ resource "azurerm_sql_database" "db" {
   create_mode                      = "Default"
   requested_service_objective_name = "${var.service_objective_name}"
   tags                             = "${var.tags}"
+  count                            = "${var.instance_count}"
 }
 
 resource "azurerm_sql_server" "server" {
