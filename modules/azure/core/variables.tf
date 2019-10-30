@@ -1,6 +1,6 @@
-variable "resource_group_name" {
-  description = "Default resource group name that the database will be created in."
-  default     = "dimko-rg"
+variable "prefix" {
+  description = ":)"
+  default     = "dimko"
 }
 
 variable "location" {
@@ -11,11 +11,6 @@ variable "location" {
 variable "server_version" {
   description = "The version for the database server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server)."
   default     = "12.0"
-}
-
-variable "db_name" {
-  default = "dimko-db"
-  description = "The name of the database to be created."
 }
 
 variable "db_edition" {
@@ -56,13 +51,6 @@ variable "end_ip_address" {
 variable "instance_count" {
   default = "2"
 }
-
-variable "tags" {
-  description = "The tags to associate with your network and subnets."
-  type        = "map"
-
-  default = {
-    tag1 = ""
-    tag2 = ""
-  }
+variable "env" {
+  default = "dev"
 }
